@@ -29,6 +29,8 @@ formSearch.addEventListener('submit', event => {
         .then(response => {
             if (!response.ok) {
                 throw new Error(response.status);
+                const loaderDestroy = document.querySelector('.loader');
+                loaderDestroy.remove();
             }
             return response.json();
         })
@@ -37,6 +39,8 @@ formSearch.addEventListener('submit', event => {
             formMarkupCreating(result);
         })
         .catch(error => {
+            const loaderDestroy = document.querySelector('.loader');
+            loaderDestroy.remove();
             modalIziToast(error);
         });
 });
