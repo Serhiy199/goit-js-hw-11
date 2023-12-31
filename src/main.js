@@ -12,6 +12,7 @@ const span = document.querySelector('span');
 
 formSearch.addEventListener('submit', event => {
     event.preventDefault();
+    listGallery.classList.add('visibility');
     span.classList.remove('visibility');
 
     const resultsSearch = event.target.elements.search.value;
@@ -49,13 +50,11 @@ formSearch.addEventListener('submit', event => {
 });
 
 function formMarkupCreating(result) {
-    listGallery.classList.add('visibility');
     const dataFormImage = result.hits;
     if (!dataFormImage.length) {
         iziToast.error({
             message: `❌ Sorry, there are no images matching your search query. Please, try again!`,
             icon: '',
-
             position: 'topRight',
         });
     }
