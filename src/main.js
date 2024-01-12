@@ -40,8 +40,9 @@ formSearch.addEventListener('submit', event => {
         })
         .catch(error => {
             span.classList.add('visibility');
+
             iziToast.error({
-                message: `❌ ${error.message}`,
+                message: `❌ ${error}`,
 
                 icon: '',
                 position: 'topRight',
@@ -58,7 +59,7 @@ function formMarkupCreating(result) {
             position: 'topRight',
         });
     }
-    let gallery = new SimpleLightbox('.gallery a', {
+    const gallery = new SimpleLightbox('.gallery a', {
         captionsData: 'alt',
         captionDelay: 250,
         captionPosition: 'bottom',
